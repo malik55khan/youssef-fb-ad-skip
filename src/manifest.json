@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "AdLibo - Ad Spy Tool for AdLibrary & Ad Library Ad Finder",
+  "description": "Discover the top free ad spy tool for Facebook's Ad Library. Find winning products, filter by active ads count and CTA buttons! ",
+  "author": "Malik Khan",
+  "version": "1.0.0",
+  "background": { "service_worker": "background.bundle.js" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "src/assets/img/128x128.png"
+  },
+  "icons": {
+    "16": "src/assets/img/16x16.png",
+    "48": "src/assets/img/48x48.png",
+    "128": "src/assets/img/128x128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.facebook.com/ads/library/*"],
+      "js": ["contentScript.bundle.js"],
+      "css": ["content.styles.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "*.*"
+      ],
+      "matches": []
+    }
+  ],
+  "permissions": ["storage"],
+  "host_permissions": ["*://*.facebook.com/ads/library/*"]
+}
